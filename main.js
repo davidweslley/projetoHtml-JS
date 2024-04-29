@@ -6,13 +6,19 @@ form.addEventListener('submit', function (e) {
 	const input_num_a = document.getElementById('na');
 	const input_num_b = document.getElementById('nb');
 
-	const msgOK = `SIM - ${input_num_a.value} é maior que ${input_num_b.value}`;
-	const msgNot = `NÃO - ${input_num_a.value} NÃO é maior que ${input_num_b.value}`;
+	const num_a = parseFloat(input_num_a.value);
+	const num_b = parseFloat(input_num_b.value);
 
-	if (input_num_a.value > input_num_b.value) {
-		alert(msgOK);
+	const msgOK = `SIM - ${num_a} é maior que ${num_b}`;
+	const msgNot = `NÃO - ${num_a} NÃO é maior que ${num_b}`;
+
+	if (!isNaN(num_a) && !isNaN(num_b)) {
+		if	(num_a > num_b) {
+			alert(msgOK);
+		} else {
+			alert(msgNot);
+		};
 	} else {
-		alert(msgNot);
-	};
-
+		alert("Por favor, insira números válidos.")
+	}	
 })
